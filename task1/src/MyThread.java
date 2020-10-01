@@ -9,12 +9,11 @@ public class MyThread extends Thread {
     @Override
     public void run() {
         while (!isInterrupted()) {
-            if (isInterrupted()) return;
             System.out.println("Я поток " +Thread.currentThread().getName() + ". Всем привет!");
             try {
                 Thread.sleep(timeout);
             } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
+                Thread.currentThread().interrupt(); // Если убрать, выполнение не остановится
             }
         }
     }
