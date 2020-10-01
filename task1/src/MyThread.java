@@ -8,7 +8,7 @@ public class MyThread extends Thread {
 
     @Override
     public void run() {
-        while (true) {
+        while (!isInterrupted()) {
             if (isInterrupted()) return;
             System.out.println("Я поток " +Thread.currentThread().getName() + ". Всем привет!");
             try {
